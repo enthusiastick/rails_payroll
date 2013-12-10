@@ -5,19 +5,19 @@
     <%= employee.last_name %>:
     <% employee.find_sales(@sales) %>
     <% employee.sales.each do |sale|  %>
-     $<%= sale.sale_value%>
+     $<%= "%.2f" % sale.sale_value%>
      <% end %>
   <% elsif employee.class == QuotaSalesPerson || employee.class == CommissionSalesPerson %><p>
 
     <%= employee.last_name %>:
     <% employee.find_sales(@sales) %>
     <% employee.sales.each do |sale|  %>
-     $<%= sale.sale_value%>
+     $<%= "%.2f" % sale.sale_value%>
 
 
     <% end %>
     <%end%>
     <% if employee.class == CommissionSalesPerson %>
-      ( Commission: $<%= employee.commission %> )
+      ( Commission: $<%= "%.2f" % employee.commission %> )
     <%end%></p>
 <% end %>

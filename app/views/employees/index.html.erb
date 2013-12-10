@@ -10,8 +10,8 @@
     <%= employee.job_title %> -
     <% employee.find_sales(@sales) if employee.class == QuotaSalesPerson || employee.class == CommissionSalesPerson %>
     <% employee.find_company_sales_total(@sales) if employee.class == Owner %>
-    Gross Salary: $<%= employee.gross_salary.round(2) %> |
-    Net Pay: $<%= employee.net_pay.round(2) %></p>
+    Gross Salary: $<%= "%.2f" % employee.gross_salary %> |
+    Net Pay: $<%= "%.2f" % employee.net_pay %></p>
 <% end %>
 
 
