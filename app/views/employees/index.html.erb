@@ -1,4 +1,4 @@
-<p>List your employees here</p>
+<h1>Employees</h1>
 <% @employees.each do |employee| %>
   <p><% if employee.class == Owner %>
       <span class="owner"><%= employee.last_name %></span>,

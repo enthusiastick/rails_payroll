@@ -1,4 +1,4 @@
-<p>List your sales here</p>
+<h1>Sales</h1>
 
 <% @employees.each do |employee| %>
 <% if employee.last_name == 'Bobby' %><p class="bobby">
@@ -16,8 +16,8 @@
 
 
     <% end %>
+    <%end%>
     <% if employee.class == CommissionSalesPerson %>
-      Commission: $<%= employee.commission %>
+      ( Commission: $<%= employee.commission %> )
     <%end%></p>
-  <%end%>
 <% end %>
