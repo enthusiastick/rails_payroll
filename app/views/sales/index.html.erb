@@ -1,1 +1,23 @@
 <p>List your sales here</p>
+
+<% @employees.each do |employee| %>
+<% if employee.last_name == 'Bobby' %><p class="bobby">
+    <%= employee.last_name %>:
+    <% employee.find_sales(@sales) %>
+    <% employee.sales.each do |sale|  %>
+     $<%= sale.sale_value%>
+     <% end %>
+  <% elsif employee.class == QuotaSalesPerson || employee.class == CommissionSalesPerson %><p>
+
+    <%= employee.last_name %>:
+    <% employee.find_sales(@sales) %>
+    <% employee.sales.each do |sale|  %>
+     $<%= sale.sale_value%>
+
+
+    <% end %>
+    <% if employee.class == CommissionSalesPerson %>
+      Commission: $<%= employee.commission %>
+    <%end%></p>
+  <%end%>
+<% end %>

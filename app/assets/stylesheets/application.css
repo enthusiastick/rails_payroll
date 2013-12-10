@@ -11,3 +11,18 @@
  *= require_self
  *= require_tree .
  */
+
+ p.bobby {
+ background-color: yellow;
+ }
+
+ .owner {
+  background-color: yellow;
+  font-weight: bold;
+  font-size: 2em;
+ }
+
+.sales {
+  color: darkgreen;
+  font-weight: bold;
+}

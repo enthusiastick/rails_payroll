@@ -1,1 +1,18 @@
 <p>List your employees here</p>
+<% @employees.each do |employee| %>
+  <p><% if employee.class == Owner %>
+      <span class="owner"><%= employee.last_name %></span>,
+    <% elsif employee.class == QuotaSalesPerson || employee.class == CommissionSalesPerson %>
+      <span class="sales"><%= employee.last_name %></span>,
+    <% else %>
+      <%= employee.last_name %>,
+    <%end%>
+    <%= employee.job_title %> -
+    <% employee.find_sales(@sales) if employee.class == QuotaSalesPerson || employee.class == CommissionSalesPerson %>
+    <% employee.find_company_sales_total(@sales) if employee.class == Owner %>
+    Gross Salary: $<%= employee.gross_salary.round(2) %> |
+    Net Pay: $<%= employee.net_pay.round(2) %></p>
+<% end %>
+
+
+
